@@ -39,7 +39,7 @@ public class JobServiceImplTest {
     @BeforeAll
     public void setup() throws IOException {
         List<Job> jobList = JsonUtil.jsonArrayToList("jobs.json", Job.class);
-        Mockito.when(restTemplate.getResponse(Mockito.any())).thenReturn(jobList);
+        Mockito.when(restTemplate.getJobs(Mockito.any())).thenReturn(jobList);
         jobService.updateJobCache();
     }
 

@@ -48,9 +48,9 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public void updateWorkerCache() {
-        LOGGER.info("Calling Workers API to getResponse workers list.");
+        LOGGER.info("Calling Workers API to getWorkers workers list.");
         try {
-            this.workersCache = (List<Worker>) restTemplate.getResponse(workerUrl);
+            this.workersCache = restTemplate.getWorkers(workerUrl);
         } catch(Exception e){
             LOGGER.warning(String.format("Error occurred while calling %s", workerUrl));
             this.workersCache = new ArrayList();

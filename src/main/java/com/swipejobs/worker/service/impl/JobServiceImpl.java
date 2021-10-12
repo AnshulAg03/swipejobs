@@ -78,7 +78,7 @@ public class JobServiceImpl implements JobService {
     public void updateJobCache() {
         LOGGER.info("Calling Jobs API to fetch Jobs list");
         try {
-            this.jobsCache = (List<Job>) restTemplate.getResponse(jobsUrl);
+            this.jobsCache = restTemplate.getJobs(jobsUrl);
         } catch(Exception e){
             LOGGER.warning(String.format("Error occurred while calling %s", jobsUrl));
             this.jobsCache = new ArrayList();

@@ -28,7 +28,7 @@ public class WorkerServiceImplTest {
     @BeforeAll
     public void setup() throws IOException {
         List<Worker> workerList = JsonUtil.jsonArrayToList("workers.json", Worker.class);
-        Mockito.when(restTemplate.getResponse(Mockito.any())).thenReturn(workerList);
+        Mockito.when(restTemplate.getWorkers(Mockito.any())).thenReturn(workerList);
         workerService.updateWorkerCache();
     }
 
@@ -57,7 +57,7 @@ public class WorkerServiceImplTest {
     }
 
     @Test
-    @DisplayName("Test getResponse worker")
+    @DisplayName("Test getWorkers worker")
     void testGetWorker(){
         try {
             Worker worker = workerService.getWorker(0L);
